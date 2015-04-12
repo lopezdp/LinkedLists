@@ -38,26 +38,55 @@ Entry* getNewEntry()
     
     cout << "Age: ";
     cin >> newOne->age;
+    cin.ignore(1024,'\n');
     
-    
-    
-    
-    
+    newOne->next = NULL;
     
     return newOne;
-    
-    
 }
 
+void displayEntry(Entry *e)
+{
+    cout << e->name << " " << e->age << endl;
+}
 
+bool addFirst(Entry *newEntry, Entry* &head)
+{
+    if (newEntry == NULL)
+        return false;
+    
+    newEntry->next = head;
+    head = newEntry;
+    return true;
+}
 
+Entry* buildList()
+{
+    Entry *listHead = NULL; //start of the list
+    
+    while(true)
+    {
+        Entry *newOne = getNewEntry();
+        
+        // add to the begining
+        if(!addFirst(newOne, listHead))
+            break;
+    }
+    return listHead;
+}
 
+void displayList(Entry *list)
+{
+    for (Entry *current = list; current != NULL; current = current->next)
+        displayEntry(current);
+}
 
 int main() {
     
     // insert code here...
+    Entry *listHead = buildList();
+    displayList(listHead);
     
+    return EXIT_SUCCESS;
     
 }
-
-
