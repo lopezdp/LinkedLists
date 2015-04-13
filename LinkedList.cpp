@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  LinkedList
+//  LinkedList - addFirst
 //
 //  Created by David P. Lopez on 4/10/15.
 //  Copyright (c) 2015 David P. Lopez. All rights reserved.
